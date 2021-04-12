@@ -12,7 +12,7 @@ import Foundation
 private var currentState: [Feature: Bool] = [
     .friends: false,
     .errorHandler: false,
-    .events: true
+    .events: false
 ]
 
 enum Feature {

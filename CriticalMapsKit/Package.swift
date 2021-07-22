@@ -12,7 +12,8 @@ let package = Package(
     .library(name: "ApiClient", targets: ["ApiClient"]),
     .library(name: "CriticalMapsKit", targets: ["CriticalMapsKit"]),
     .library(name: "MapFeature", targets: ["MapFeature"]),
-    .library(name: "AppFeature", targets: ["AppFeature"])
+    .library(name: "AppFeature", targets: ["AppFeature"]),
+    .library(name: "InfoBar", targets: ["InfoBar"])
   ],
   dependencies: [
     .package(
@@ -61,6 +62,15 @@ let package = Package(
     .target(
       name: "IDProvider",
       dependencies: ["Helpers"]
+    ),
+    .target(
+      name: "InfoBar",
+      dependencies: [
+        "Styleguide",
+        "Helpers",
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+      ],
+      resources: [.process("Resources")]
     ),
     .target(
       name: "Logger",
